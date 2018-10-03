@@ -1,8 +1,22 @@
 // Add/Customize menu bar
 
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, Menu} = require('electron');
 
 let win;
+let menuTemplate = [
+    {
+        label: 'Clear',
+        role: 'reload' // Temporary until clear() is fixed
+    },
+    {
+        label: 'Exit',
+        role: 'quit'
+    },
+    {
+        label: 'Credits' // Add credits in a new window
+    }
+];
+Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate)); 
 
 app.on('ready', () => {
     // Create new window
