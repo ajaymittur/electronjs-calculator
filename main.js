@@ -1,5 +1,3 @@
-// Add/Customize menu bar
-
 const {app, BrowserWindow, Menu} = require('electron');
 
 let win;
@@ -13,9 +11,11 @@ let menuTemplate = [
         role: 'quit'
     },
     {
-        label: 'Credits' // Add credits in a new window
+        label: 'Credits',
+        click: openCredits
     }
 ];
+
 Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate)); 
 
 app.on('ready', () => {
@@ -33,3 +33,8 @@ app.on('window-all-closed', () => {
     // Close the app
     app.quit();
 });
+
+function openCredits() {
+    let credits = new BrowserWindow({height: 260, width: 160, title: 'Credits', parent: win});
+    credits.loadFile('credits.html');
+}
