@@ -1,10 +1,10 @@
 const {app, BrowserWindow, Menu} = require('electron');
 
-let win;
+let win, credits;
 let menuTemplate = [
     {
         label: 'Clear',
-        role: 'reload' // Temporary until clear() is fixed
+        role: 'reload'
     },
     {
         label: 'Exit',
@@ -12,8 +12,24 @@ let menuTemplate = [
     },
     {
         label: 'Credits',
-        click: openCredits
-    }
+        click() {
+            let credits = new BrowserWindow({height: 260, width: 160, title: 'Credits', parent: win});
+            credits.loadFile('pages/credits.html');
+        }
+    },
+     {
+         label: 'Theme',
+         submenu: [
+            {
+                label: 'Light',
+                click: sendLightTheme
+            },
+            {
+                label: 'Dark',
+                click: sendDarkTheme
+            },
+        ]
+     }
 ];
 
 Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate)); 
@@ -34,7 +50,10 @@ app.on('window-all-closed', () => {
     app.quit();
 });
 
-function openCredits() {
-    let credits = new BrowserWindow({height: 260, width: 160, title: 'Credits', parent: win});
-    credits.loadFile('pages/credits.html');
+function sendLightTheme() {
+    win.webContents.send('channelTheme', 'light');
+}
+
+function sendDarkTheme() {
+    win.webContents.send('channelTheme', 'dark');
 }
