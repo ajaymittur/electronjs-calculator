@@ -1,0 +1,18 @@
+body {
+    background-color: #2f3640;
+}
+
+#output {
+    background-color: #353b48;
+    color: #dcdde1;
+}
+
+button {
+    background-color: #353b48;
+    color: #dcdde1;
+}
+
+button:hover {
+    background-color: #ecf0f1;
+    color: #353b48;
+}
