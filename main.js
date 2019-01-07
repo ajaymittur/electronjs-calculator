@@ -2,7 +2,7 @@
 
 const {app, BrowserWindow, Menu} = require('electron');
 
-let win, credits;
+let win;
 let menuTemplate = [
      {
          label: 'Theme',
@@ -23,7 +23,7 @@ let menuTemplate = [
      {
          label: 'Credits',
          click() {
-             let credits = new BrowserWindow({height: 260, width: 160, title: 'Credits', parent: win});
+             let credits = new BrowserWindow({height: 300, width: 400, title: 'Credits', parent: win});
              credits.loadFile('pages/credits.html');
          }
      },
@@ -45,7 +45,7 @@ Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
 
 app.on('ready', () => {
     // Create new window
-    win = new BrowserWindow({height: 510, width: 320, title: 'Calculator'});
+    win = new BrowserWindow({height: 580, width: 400, title: 'Calculator'});
 
     // Load the source file
     win.loadFile('pages/index.html'); 

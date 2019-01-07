@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- <title>Calculator</title> -->
-        <link rel="stylesheet" type="text/css" href="..\styles\positioning.css">
+        <link rel="stylesheet" type="text/css" href="..\styles\layout.css">
     </head>
     <body>
         <div id="output">0</div>
@@ -12,27 +12,27 @@
                 <button type="button" onclick="display(2)">2</button>
                 <button type="button" onclick="display(3)">3</button>
                 <button type="button" onclick="divide()" style="color: #2ecc71">/</button>
-                <br>
+            
                 <button type="button" onclick="display(4)">4</button>
                 <button type="button" onclick="display(5)">5</button>
                 <button type="button" onclick="display(6)">6</button>
                 <button type="button" onclick="multiply()" style="color: #2ecc71">*</button>
-                <br>
+            
                 <button type="button" onclick="display(7)">7</button>
                 <button type="button" onclick="display(8)">8</button>
                 <button type="button" onclick="display(9)">9</button>
                 <button type="button" onclick="subtract()" style="color: #2ecc71">-</button>
-                <br>
+            
                 <button type="button" onclick="display('.')">.</button>
                 <button type="button" onclick="display(0)">0</button>
                 <button type="button" onclick="equalsTo()">=</button>
                 <button type="button" onclick="add()" style="color: #2ecc71">+</button>
-                <br>
+            
                 <!-- onclick event not working -->
                 <!-- FIXED -->
                 <!-- // Issue: clear() is apparently an obsolete inbuilt function which is not supposed to do anything -->
                 <!-- FIX: change function name from clear to clearCalc -->
-                <button type="button" onclick="clearCalc()" style="width: 270px; height: 40px;">Clear</button>
+                <button type="button" onclick="clearCalc()" id="clearButton">Clear</button>
 
             </div>
 
